@@ -1,0 +1,15 @@
+TODO:
+    ☐ WEB-101: Suportar a tecla ENTER no input para adicionar um TODO item @started(19-03-26 20:57)
+    ☐ WEB-102: Adicionar um todo item causa perca de foco no text field
+    ☐ WEB-103: Adicione um filtro de status como TESTE
+    ☐ WEB-104: Adicione um TESTE para mudar a posição do filtro
+    ☐ WEB-110: Melhore a aparência visual da aplicação
+    ☐ WEB-120: Salve a lista de todo items
+    ☐ WEB-201: Extraia o CSS em um arquivo separado
+    ☐ WEB-202: Otimize a geração do bundle
+    ☐ WEB-203: Substitua a lib/state.js
+    ☐ WEB-301: Otimize a renderização da view
+    ☐ WEB-302: Compilação estática dos testes
+    ☐ WEB-303: Melhore a experiência do desenvolvedor
+DONE:
+CANCELLED:
