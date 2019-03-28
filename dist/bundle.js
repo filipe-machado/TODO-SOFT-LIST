@@ -9374,10 +9374,10 @@
 
 	exports = module.exports = __webpack_require__(335)();
 	// imports
-
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Baloo+Chettan|Margarine);", ""]);
 
 	// module
-	exports.push([module.id, "html, body, .todo {\n    margin: 0;\n    padding: 0;\n}\n\n.todo {\n    list-style-type: none;\n}\n\n.todo__input, .todo__item {\n    margin: 10px;\n}\n\n.todo__item--done {\n    text-decoration: line-through;\n}\n\n#addTodo {\n    margin-left: 10px;\n}\n", ""]);
+	exports.push([module.id, "html, body, .todo {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: 100%;\n}\n\nbody, button, h1, input {\n    font-family: 'Margarine', cursive;\n    outline: none;\n}\n\n.todo__item--done {\n    color: #FFF;\n}\n\n.todo__item--open {\n    color: #26353E;\n}\n\n\n@media only screen and (min-width: 320px) {\n    html, body {\n        font-size: 2rem;\n        background-color: #B3E5FC;\n    }\n\n    label {\n        display: inline-block;\n        position: relative;\n        font-size: 2rem;\n        vertical-align: top;\n        color: rgba(0,0,0,0.2);\n        cursor: pointer;\n    }\n\n    input[type=\"checkbox\"], input[type=\"radio\"],\n    label::before {\n        width: 1.5rem;\n        height: 1.5rem;        \n        margin-top: -.1rem;\n        cursor: pointer;\n    }\n\n    input[type=\"checkbox\"] {\n        opacity: 0\n    }\n\n    input[type=\"checkbox\"], input[type=\"radio\"] {        \n        display: inline-block;\n        vertical-align: middle;\n        z-index: 100;\n    }\n\n    input[type=\"checkbox\"]:checked + label {\n        color: #FFF;\n        text-decoration: line-through;\n    }\n\n    input[type=\"radio\"] + label {\n        font-size: 1rem;\n        margin-top: .5rem;\n    }\n\n    input[type=\"radio\"]:checked + label {        \n        color: #c34;\n    }\n\n    .filter {\n        display: flex;\n        align-items: flex-start;\n        flex-direction: column;\n        margin-left: 1rem;\n    }\n    \n    .todo {\n        list-style-type: none;   \n        display: flex;\n        align-items: flex-start;\n        flex-direction: column;\n    }\n    \n    .todo__input, .todo__item {\n        margin: 10px;\n    }\n    \n    #addTodo {\n        font-size: 1.6rem;\n        margin-left: .5rem;\n        color: #26353E;\n        background-color: transparent;\n        border: .2rem solid #26353E;\n        padding: .5rem 2rem;\n\n        text-transform: uppercase;\n    }\n    \n    #app {\n        margin: 0;\n        width: 100vw;\n        min-height: 100vh;  \n        background-color: #B3E5FC;\n    }\n    \n    #title {\n        text-align: center;\n        color: #26353E;\n    }\n\n    #todoInput {\n        font-size: 1.6rem;\n        padding: .5rem .2rem;\n        margin: 1rem 0 1rem 2.4rem;\n        background-color: transparent;\n        border: .2rem solid #26353E;\n    }\n}\n\n\n/* @media only screen and (min-width: 768px) {\n    html, body {\n        font-size: 1rem;\n    }\n\n    .todo {\n        list-style-type: none;   \n        display: flex;\n        align-items: center;\n        flex-direction: column;\n    }\n    \n    .todo__input, .todo__item {\n        margin: 10px;\n    }\n    \n    #addTodo {\n        font-size: 1.6rem;\n        margin-left: .5rem;\n        color: #26353E;\n        background-color: transparent;\n        border: .2rem solid #26353E;\n        padding: .5rem 2rem;\n        text-transform: uppercase;\n    }\n    \n    #app {\n        align-content: center;\n        text-align: center;\n        margin: 0;\n        min-height: 100vh;  \n    }\n    \n    #title {\n        text-align: center;\n        color: #26353E;\n    }\n\n    #todoInput {\n        font-size: 1.6rem;\n        padding: .5rem .2rem;\n        margin: 1rem 0 1rem 2.4rem;\n        background-color: transparent;\n        border: .2rem solid #26353E;\n    }\n} */", ""]);
 
 	// exports
 
@@ -10766,17 +10766,25 @@
 	function renderApp(input, todoList) {
 	    if ((0, _feature.isEnabled)('renderBottom')) {
 	        return renderAddTodoAtBottom(input, todoList);
+	    } else if ((0, _feature.isEnabled)('filter')) {
+	        return renderFilter(input, todoList);
+	    } else if ((0, _feature.isEnabled)('renderBottom') && (0, _feature.isEnabled)('filter') && (0, _feature.isEnabled)('filterTop')) {
+	        return renderFilter(input, todoList);
 	    } else {
 	        return renderAddTodoAtTop(input, todoList);
 	    }
 	}
 
 	function renderAddTodoAtTop(input, todoList) {
-	    return '<div id="app">\n        ' + input + '\n        ' + todoList + '\n    </div>';
+	    return '<div id="app">\n        <h1 id="title">TODO LIST</h1>\n        ' + input + '\n        ' + todoList + '\n    </div>';
 	}
 
 	function renderAddTodoAtBottom(input, todoList) {
-	    return '<div id="app">\n        ' + todoList + '\n        ' + input + '\n    </div>';
+	    return '<div id="app">\n        <h1 id="title">TODO LIST</h1>\n        ' + todoList + '\n        ' + input + '\n    </div>';
+	}
+
+	function renderFilter(input, todoList) {
+	    return '<div id="app">\n        <h1 id="title">TODO LIST</h1>\n        ' + input + '\n\n        <div class="filter">\n            <div>\n                <input class="filter" type="radio" id="radio1" name="filter" value="todos" checked><label>Mostrar todos</label>\n            </div>\n            <div>\n                <input class="filter" type="radio" id="radio2" name="filter" value="abertos" ><label>Somente abertos</label>\n            </div>\n            <div>\n                <input class="filter" type="radio" id="radio3" name="filter" value="fechados" ><label>Somente fechados</label>\n            </div>\n        </div>\n        \n        ' + todoList + '\n    </div>';
 	}
 
 	function renderInput() {
@@ -10789,7 +10797,7 @@
 
 	function renderTodoItem(todo) {
 	    var todoClass = 'todo__item todo__item--' + (todo.done ? 'done' : 'open');
-	    return '<li class="' + todoClass + '">\n        <input class="js_toggle_todo" type="checkbox" data-id="' + todo.id + '"' + (todo.done ? ' checked' : '') + '>\n        ' + todo.text + '\n    </li>';
+	    return '<li class="' + todoClass + '">\n        <input class="js_toggle_todo" type="checkbox" id="cb' + todo.id + '" data-id="' + todo.id + '"' + (todo.done ? ' checked' : '') + '>\n        <label for="cb' + todo.id + '">' + todo.text + '</label>\n    </li>';
 		}
 
 /***/ }),
@@ -10833,8 +10841,20 @@
 	function registerEventHandlers() {
 	    (0, _events.listen)('click', '#addTodo', function (event) {
 	        var todoInput = document.getElementById('todoInput');
-	        _state.todos.dispatch((0, _actions.addTodo)(todoInput.value));
-	        event.stopPropagation();
+	        if (todoInput.value != "") {
+	            _state.todos.dispatch((0, _actions.addTodo)(todoInput.value));
+	            event.stopPropagation();
+	        }
+	    });
+
+	    (0, _events.listen)('keydown', '#todoInput', function (event) {
+	        var todoInput = document.getElementById('todoInput');
+	        if (event.key === "Enter") {
+	            if (todoInput.value != "") {
+	                _state.todos.dispatch((0, _actions.addTodo)(todoInput.value));
+	                event.stopPropagation();
+	            }
+	        }
 	    });
 
 	    (0, _events.listen)('click', '.js_toggle_todo', function (event) {
@@ -10842,11 +10862,31 @@
 	        _state.todos.dispatch((0, _actions.toggleTodoState)(id));
 	    });
 
-	    (0, _events.listen)('keydown', '#todoInput', function (event) {
-	        if (event.key === "Enter") {
-	            var todoInput = document.getElementById('todoInput');
-	            _state.todos.dispatch((0, _actions.addTodo)(todoInput.value));
-	            event.stopPropagation();
+	    (0, _events.listen)('click', '.filter', function (event) {
+	        var value = event.target.getAttribute('value');
+	        var check = event.target.checked;
+	        var all = document.getElementsByClassName('todo__item');
+	        var done = document.getElementsByClassName('todo__item--done');
+	        var open = document.getElementsByClassName('todo__item--open');
+
+	        if (value === "todos" && check === true) {
+	            for (var index = 0; index < all.length; index++) {
+	                all[index].setAttribute('style', 'display: block');
+	            }
+	        } else if (value === "abertos" && check === true) {
+	            for (var _index = 0; _index < open.length; _index++) {
+	                open[_index].setAttribute('style', 'display: block');
+	            }
+	            for (var _index2 = 0; _index2 < done.length; _index2++) {
+	                done[_index2].setAttribute('style', 'display: none');
+	            }
+	        } else if (value === "fechados" && check === true) {
+	            for (var _index3 = 0; _index3 < open.length; _index3++) {
+	                open[_index3].setAttribute('style', 'display: none');
+	            }
+	            for (var _index4 = 0; _index4 < done.length; _index4++) {
+	                done[_index4].setAttribute('style', 'display: block');
+	            }
 	        }
 	    });
 	}

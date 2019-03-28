@@ -1,20 +1,169 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan|Margarine');
+
 html, body, .todo {
     margin: 0;
     padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
-.todo {
-    list-style-type: none;
-}
-
-.todo__input, .todo__item {
-    margin: 10px;
+body, button, h1, input {
+    font-family: 'Margarine', cursive;
+    outline: none;
 }
 
 .todo__item--done {
-    text-decoration: line-through;
+    color: #FFF;
 }
 
-#addTodo {
-    margin-left: 10px;
+.todo__item--open {
+    color: #26353E;
 }
+
+
+@media only screen and (min-width: 320px) {
+    html, body {
+        font-size: 2rem;
+        background-color: #B3E5FC;
+    }
+
+    label {
+        display: inline-block;
+        position: relative;
+        font-size: 2rem;
+        vertical-align: top;
+        color: rgba(0,0,0,0.2);
+        cursor: pointer;
+    }
+
+    input[type="checkbox"], input[type="radio"],
+    label::before {
+        width: 1.5rem;
+        height: 1.5rem;        
+        margin-top: -.1rem;
+        cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+        opacity: 0
+    }
+
+    input[type="checkbox"], input[type="radio"] {        
+        display: inline-block;
+        vertical-align: middle;
+        z-index: 100;
+    }
+
+    input[type="checkbox"]:checked + label {
+        color: #FFF;
+        text-decoration: line-through;
+    }
+
+    input[type="radio"] + label {
+        font-size: 1rem;
+        margin-top: .5rem;
+    }
+
+    input[type="radio"]:checked + label {        
+        color: #c34;
+    }
+
+    .filter {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin-left: 1rem;
+    }
+    
+    .todo {
+        list-style-type: none;   
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    
+    .todo__input, .todo__item {
+        margin: 10px;
+    }
+    
+    #addTodo {
+        font-size: 1.6rem;
+        margin-left: .5rem;
+        color: #26353E;
+        background-color: transparent;
+        border: .2rem solid #26353E;
+        padding: .5rem 2rem;
+
+        text-transform: uppercase;
+    }
+    
+    #app {
+        margin: 0;
+        width: 100vw;
+        min-height: 100vh;  
+        background-color: #B3E5FC;
+    }
+    
+    #title {
+        text-align: center;
+        color: #26353E;
+    }
+
+    #todoInput {
+        font-size: 1.6rem;
+        padding: .5rem .2rem;
+        margin: 1rem 0 1rem 2.4rem;
+        background-color: transparent;
+        border: .2rem solid #26353E;
+    }
+}
+
+
+/* @media only screen and (min-width: 768px) {
+    html, body {
+        font-size: 1rem;
+    }
+
+    .todo {
+        list-style-type: none;   
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .todo__input, .todo__item {
+        margin: 10px;
+    }
+    
+    #addTodo {
+        font-size: 1.6rem;
+        margin-left: .5rem;
+        color: #26353E;
+        background-color: transparent;
+        border: .2rem solid #26353E;
+        padding: .5rem 2rem;
+        text-transform: uppercase;
+    }
+    
+    #app {
+        align-content: center;
+        text-align: center;
+        margin: 0;
+        min-height: 100vh;  
+    }
+    
+    #title {
+        text-align: center;
+        color: #26353E;
+    }
+
+    #todoInput {
+        font-size: 1.6rem;
+        padding: .5rem .2rem;
+        margin: 1rem 0 1rem 2.4rem;
+        background-color: transparent;
+        border: .2rem solid #26353E;
+    }
+} */
