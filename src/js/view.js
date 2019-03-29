@@ -4,18 +4,22 @@ export function render(el, state) {
     const todoItems = state.todos.map(renderTodoItem).join('');
     el.innerHTML = renderApp(
         renderInput(),
-        renderTodos(todoItems)
+        renderTodos(todoItems),
+        renderRadio()
     );
 }
 
 function renderApp(input, todoList) {
     if(isEnabled('renderBottom')) {
         return renderAddTodoAtBottom(input, todoList);
-    } else if(isEnabled('filter')) {
+    } 
+    if(isEnabled('filter')) {
         return renderFilter(input, todoList);
-    } else if(isEnabled('renderBottom') && isEnabled('filter') && isEnabled('filterTop')) {
+    } 
+    else if(isEnabled('renderBottom') && isEnabled('filter') && isEnabled('filterTop')) {
         return renderFilter(input, todoList);
-    } else {
+    }
+    else {
         return renderAddTodoAtTop(input, todoList);
     }
 }
@@ -36,25 +40,26 @@ function renderAddTodoAtBottom(input, todoList) {
     </div>`;
 }
 
-function renderFilter(input, todoList) {
+function renderFilter(input, todoList, filter) {
     return `<div id="app">
         <h1 id="title">TODO LIST</h1>
         ${input}
-
-        <div class="filter">
-            <div>
-                <input class="filter" type="radio" id="radio1" name="filter" value="todos" checked><label>Mostrar todos</label>
-            </div>
-            <div>
-                <input class="filter" type="radio" id="radio2" name="filter" value="abertos" ><label>Somente abertos</label>
-            </div>
-            <div>
-                <input class="filter" type="radio" id="radio3" name="filter" value="fechados" ><label>Somente fechados</label>
-            </div>
-        </div>
-        
         ${todoList}
-    </div>`;
+        <div class="filter">
+            <div><input class="filter" type="radio" id="radio1" name="filter" value="todos" checked><label>Mostrar todos</label></div>
+            <div><input class="filter" type="radio" id="radio2" name="filter" value="abertos" ><label>Somente abertos</label></div>
+            <div><input class="filter" type="radio" id="radio3" name="filter" value="fechados" ><label>Somente fechados</label></div>
+        </div>
+    </div>`;    
+}
+
+function renderRadio() {
+    return `
+        <div class="filter">
+            <div><input class="filter" type="radio" id="radio1" name="filter" value="todos" checked><label>Mostrar todos</label></div>
+            <div><input class="filter" type="radio" id="radio2" name="filter" value="abertos" ><label>Somente abertos</label></div>
+            <div><input class="filter" type="radio" id="radio3" name="filter" value="fechados" ><label>Somente fechados</label></div>
+        </div>`;
 }
 
 function renderInput() {

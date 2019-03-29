@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Margarine');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Margarine', cursive;
+    outline: none;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    font-size: 16 / 13.656 + vw;
+    background-color: #B3E5FC;
+}
+
+label {
+    display: inline-block;
+    position: relative;
+    font-size: 24 / 13.656 + vw;
+    vertical-align: top;
+    color: rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+input[type="checkbox"], input[type="radio"],
+label::before {
+    width: 22 / 13.656 + vw;
+    height: 22 / 13.656 + vw;        
+    margin-top: 5 / 13.656 + vw;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    opacity: 0
+}
+
+input[type="checkbox"], input[type="radio"] {        
+    display: inline-block;
+    vertical-align: middle;
+    z-index: 100;
+}
+
+input[type="checkbox"]:checked + label {
+    color: #FFF;
+    text-decoration: line-through;
+}
+
+input[type="radio"] + label {
+    font-size: 20 / 13.656 + vw;
+    margin-top: 2 / 13.656 + vw;
+}
+
+input[type="radio"]:checked + label {        
+    color: #c34;
+}
+
+.filter {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
+.todo {
+    list-style-type: none;   
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.todo__item {
+    margin: 10 / 13.656 + vw;
+}
+
+
+.todo__item--done {
+    color: #FFF;
+}
+
+.todo__item--open {
+    color: #26353E;
+}
+
+#addTodo {
+    font-size: 20 / 13.656 + vw;
+    margin-left: -50 / 13.656 + vw;
+    color: #26353E;
+    background-color: transparent;
+    border: none;
+    padding: 15 / 13.656 + vw 0;
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#app {
+    margin: 20 / 13.656 + vw 0;
+    width: 40vw;
+    min-height: 100vh;  
+    background-color: #B3E5FC;
+}
+
+#title {
+    text-align: center;
+    color: #26353E;
+    font-size: 38 / 13.656 + vw;
+}
+
+#todoInput {
+    width: 90%;
+    font-size: 24 / 13.656 + vw;
+    padding: 8 / 13.656 + vw 10 / 13.656 + vw;
+    margin: 1rem 0;
+    background-color: transparent;
+    border: .2rem solid #26353E;
+}
