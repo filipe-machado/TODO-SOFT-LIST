@@ -8,8 +8,6 @@ export function registerEventHandlers() {
         if (todoInput.value != "") {
             todos.dispatch(addTodo(todoInput.value));
             event.stopPropagation();
-            fetch('https://my-json-server.typicode.com/filipe-machado/TODO-SOFT-LIST/todo')
-                .then(response => response.json())
         }
     });
 
@@ -19,36 +17,7 @@ export function registerEventHandlers() {
             if (todoInput.value != "") {
                 todos.dispatch(addTodo(todoInput.value));
                 event.stopPropagation();
-                fetch('https://my-json-server.typicode.com/filipe-machado/TODO-SOFT-LIST/todo')
-                    .then(response => response.json())
-            }
-            fetch('https://jsonplaceholder.typicode.com/posts', {
-                method: 'POST',
-                body: JSON.stringify({
-                title: 'foo',
-                body: 'bar',
-                userId: 1
-                }),
-                headers: {
-                "Content-type": "application/json; charset=UTF-8"
-                }
-            })
-            .then(response => response.json())
-            .then(json => console.log(json))
-
-            fetch('https://my-json-server.typicode.com/filipe-machado/TODO-SOFT-LIST/todo', {
-                method: 'POST',
-                body: JSON.stringify({
-                    id: 6,
-                    text: 'Fazer aquelas parada lá',
-                    done: true
-                }),
-                headers: {
-                    "Content-type": "application/json; charset=UTF-8"
-                }
-            })
-            .then(response => response.json())
-            .then(json => console.log(json))
+            }        
         }
     })
 
