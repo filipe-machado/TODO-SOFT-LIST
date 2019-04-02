@@ -23,6 +23,7 @@
     "babel-runtime": "^6.3.19",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
+    "mongodb": "^3.2.2",
     "node-sass": "^4.5.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
