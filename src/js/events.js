@@ -18,6 +18,20 @@ export function registerEventHandlers() {
                 todos.dispatch(addTodo(todoInput.value));
                 event.stopPropagation();
             }
+            fetch('https://jsonplaceholder.typicode.com/todos/', {
+                method: 'POST',
+                body: JSON.stringify({
+                    id: 0,
+                    text: 'Take a look at the application',
+                    done: true
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            })
+            .then(response => response.json())
+            .then(json => console.log(json))
+
         }
     })
 
