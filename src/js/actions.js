@@ -6,6 +6,13 @@ export function toggleTodoState(id) {
     };
 }
 
+export function filterTodo(filter) {
+    return {
+        type: 'FILTER_TODO',
+        filter
+    }
+}
+
 export function addTodo(text) {
     return {
         type: 'ADD_TODO',

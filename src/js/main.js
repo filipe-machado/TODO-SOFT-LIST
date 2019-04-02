@@ -1,11 +1,9 @@
-import '../css/main.css';
+import '../scss/main.scss'
 
-import {todos} from './state';
-import {render} from './view';
-import {registerEventHandlers} from './events';
+import { todos } from './state'
+import { render } from './view'
+import { registerEventHandlers } from './events'
 
-todos.subscribe(newState => render(document.body, newState));
-
-render(document.body, todos.getState());
-
-registerEventHandlers();
+todos.subscribe(newState => render(document.body, newState))
+render(document.body, todos.getState())
+registerEventHandlers()
