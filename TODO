@@ -11,6 +11,6 @@ Postponed:
 Archive:
   ✔ WEB-202: Otimize a geração do bundle @done(19-03-29 05:17) @project(Todo)
   ✔ WEB-201: Extraia o CSS em um arquivo separado @done(19-03-29 03:45) @project(Todo)
-  ✔ WEB-103: Adicione um filtro de status como TESTE @started(19-03-28 06:10) @done(19-03-28 08:40) @lasted(2h30m53s) @project(Todo)
-  ✔ WEB-110: Melhore a aparência visual da aplicação @started(19-03-26 22:15) @done(19-03-27 02:09) @lasted(3h54m7s) @project(TODO)
-  ✔ WEB-101: Suportar a tecla ENTER no input para adicionar um TODO item @started(19-03-26 20:57) @done(19-03-26 21:27) @lasted(30m33s) @project(TODO)
+  ✔ WEB-103: Adicione um filtro de status como TESTE @done(19-03-28 08:40) @project(Todo)
+  ✔ WEB-110: Melhore a aparência visual da aplicação @done(19-03-27 02:09) @project(Todo)
+  ✔ WEB-101: Suportar a tecla ENTER no input para adicionar um TODO item @done(19-03-26 21:27) @project(Todo)
